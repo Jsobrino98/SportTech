@@ -1,0 +1,33 @@
+
+
+services:
+  # Servicio para la base de datos MySQL
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123.  # Contraseña del root
+      MYSQL_DATABASE: BBDD  # Nombre de la base de datos
+      MYSQL_USER: root  # Usuario de la base de datos
+      MYSQL_PASSWORD: abc123.  # Contraseña del usuario
+    ports:
+      - "3306:3306"  # Mapea el puerto 3306 de MySQL
+    volumes:
+      - mysql-data:/var/lib/mysql  # Volumen persistente para los datos de MySQL
+      - ./BBDD.sql:/docker-entrypoint-initdb.d/BBDD.sql  # Carga el script SQL al iniciar MySQL
+
+  # Servicio para la aplicación Java
+  app:
+    build: .
+    container_name: mi-aplicacion
+    depends_on:
+      - mysql  # Asegura que MySQL se inicie antes de la aplicación
+    ports:
+      - "5000:5000"  # Mapea el puerto 5000 de la aplicación
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mi_base_de_datos  # URL de conexión
+      SPRING_DATASOURCE_USERNAME: root  # Usuario de MySQL
+      SPRING_DATASOURCE_PASSWORD: abc123.  # Contraseña de MySQL
+
+volumes:
+  mysql-data:  # Volumen persistente para los datos de MySQL

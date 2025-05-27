@@ -1,0 +1,14 @@
+# Usa una imagen base de OpenJDK
+FROM openjdk:11-jre-slim
+
+# Define el directorio de trabajo en el contenedor
+WORKDIR /app
+
+# Copia el archivo JAR desde tu máquina local al contenedor
+COPY target/app.jar /app/app.jar
+
+# Expón el puerto 5000 que va a usar la aplicación
+EXPOSE 5000
+
+# Comando para ejecutar el JAR al iniciar el contenedor
+CMD ["java", "-jar", "app.jar"]
