@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { TorneosDetalleComponent } from './pages/torneos-detalle/torneos-detalle.component';
 import { BalonOroComponent } from './pages/balon-oro/balon-oro.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,13 @@ import { AuthGuard } from './services/auth-guard.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AuthGuard, provideClientHydration(withEventReplay())],  // Agrega el AuthGuard aquí
   bootstrap: [AppComponent]

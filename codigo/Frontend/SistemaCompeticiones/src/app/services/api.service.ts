@@ -5,7 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://localhost:9090';
   private authStatusSubject = new BehaviorSubject<boolean>(false);  // Estado de autenticación
   authStatus = this.authStatusSubject.asObservable();  // Observable público
 

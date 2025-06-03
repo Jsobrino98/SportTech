@@ -74,7 +74,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200")); // Permitir solicitudes desde Angular
+        configuration.setAllowedOriginPatterns(List.of("*")); // Permite todos los orígenes usando patrones
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));  // Permitir todos los encabezados
         configuration.setAllowCredentials(true); // Permitir solicitudes con credenciales
