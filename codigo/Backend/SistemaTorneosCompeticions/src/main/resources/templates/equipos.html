@@ -4,40 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Equipos</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" th:href="@{/css/styles.css}">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
 
-</head>
-<body>
-<header>
-    <h1>Gestión de Equipos</h1>
-    <a th:href="@{/home}">Inicio</a>
-</header>
-<section>
-    <h2>Lista de Equipos</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Ciudad</th>
-            <th>Escudo</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="equipo : ${equipos}">
-            <td th:text="${equipo.nombre}"></td>
-            <td th:text="${equipo.ciudad}"></td>
-            <td><img th:src="${equipo.escudoURL}" alt="Escudo" width="50"></td>
-        </tr>
-        </tbody>
-    </table>
-</section>
-<footer>
-    <div class="footer-content">
-        <p>© 2025 Todos los derechos reservados</p>
-        <p>Creado por <strong>Jorge Sobrino</strong></p>
-    </div>
-</footer>
+ </head>
+ <body>
+ <header>
+     <h1>Gestión de Equipos</h1>
+     <a th:href="@{/home}">Inicio</a>
+ </header>
+ <section>
+     <h2>Lista de Equipos</h2>
+     <table>
+         <thead>
+         <tr>
+             <th>Nombre</th>
+             <th>Ciudad</th>
+             <th>Escudo</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr th:each="equipo : ${equipos}">
+             <td th:text="${equipo.nombre}"></td>
+             <td th:text="${equipo.ciudad}"></td>
+             <td><img th:src="${equipo.escudoURL}" alt="Escudo" width="50"></td>
+         </tr>
+         </tbody>
+     </table>
+ </section>
+ <footer>
+     <div class="footer-content">
+         <p>© 2025 Todos los derechos reservados</p>
+         <p>Creado por <strong>Jorge Sobrino</strong></p>
+     </div>
+ </footer>
 
-</body>
-</html>
+ </body>
+ </html>
