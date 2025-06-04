@@ -10,8 +10,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON CompetenciasDeportivas.* TO 'sportech'@'
 -- Aplicar os cambios
 FLUSH PRIVILEGES;
 
-
-
 -- Tabla de Torneos
 CREATE TABLE torneos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,

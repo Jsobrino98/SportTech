@@ -28,39 +28,38 @@ Este sistema es una aplicación de gestión de equipos deportivos, jugadores, to
 
 ## Requisitos
 Para ejecutar este proyecto localmente, necesitas tener instalados los siguientes programas:
-- **Java 11+**
-- **MySQL**
-- **Maven** (para gestionar las dependencias)
-- **Postman** (para pruebas de la API)
+    -Java JDK 17+
+    -Node.js v18+
+    -Angular CLI
+    -MySQL 8.x (con base de datos sportech creada)
 
 ## Instalación
 ### Clonar el repositorio:
 ```
-git clone https://github.com/Jsobrino98/ProyectoFinalAD.git
+git clone https://https://github.com/Jsobrino98/SportTech
 ```
 
 ### Configuración de la base de datos:
-Crea una base de datos en MySQL llamada `CompetenciasDeportivas`:
-```
-CREATE DATABASE CompetenciasDeportivas;
-```
-Configura las credenciales de la base de datos en el archivo `src/main/resources/application.properties`:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/CompetenciasDeportivas
-spring.datasource.username=usuario
-spring.datasource.password=usuario
-```
+Ejecutamos el script BBDD de la carpeta despliegue.
 
-### Ejecutar el proyecto:
-Para ejecutar el proyecto con Maven:
-```
-mvn spring-boot:run
-```
+### Ejecutar el backend del proyecto:
+Ejecutamos el archivo ``LanzarAplicacion``
+
+### Ejecutar el frontend proyecto:
+Nos colocamos en la carpeta del frontend, abrimos una consola y ejecutamos:
+
+``
+npm install
+
+ng serve -o
+
+``
 
 ## Acceder a la API
 Una vez que el servidor esté en ejecución, podrás acceder a la API en:
-- [http://localhost:8080](http://localhost:8080)
-- Documentación de la API en Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+- Frontend: http://localhost:4200
+- Backend API: http://localhost:9090
+- Documentación de la API en Swagger: [http://localhost:9090/swagger-ui.html](http://localhost:9090/swagger-ui.html)
 
 ## Endpoints Principales
 | Método | Endpoint           | Descripción                   |

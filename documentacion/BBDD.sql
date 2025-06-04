@@ -1,6 +1,17 @@
 CREATE DATABASE IF NOT EXISTS CompetenciasDeportivas;
 USE CompetenciasDeportivas;
 
+-- Crear o usuario se non existe
+CREATE USER 'sportech'@'%' IDENTIFIED BY 'sportech';
+
+-- Conceder permisos ao usuario
+GRANT SELECT, INSERT, UPDATE, DELETE ON CompetenciasDeportivas.* TO 'sportech'@'%';
+
+-- Aplicar os cambios
+FLUSH PRIVILEGES;
+
+
+
 -- Tabla de Torneos
 CREATE TABLE torneos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
